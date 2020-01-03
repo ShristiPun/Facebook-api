@@ -1,6 +1,6 @@
 var  userModel=require('../model/userModel');
 
-//function for adding guest data
+//function for adding user data
 exports.addUser=(req,res)=>{
     const user=new userModel(req.body)
     user.save().then(function(){
@@ -21,14 +21,14 @@ exports.getUser=(req,res)=>{
 
 //params is for taking data from url
 exports.deleteUser=(req,res)    =>{
-	guestModel.findByIdAndDelete(req.params._id).then(function(){
+	userModel.findByIdAndDelete(req.params._id).then(function(){
 		res.send("deleted")
 	}).catch(function(){
 		res.send(e)
 	});
 }
-exports.updateGuest=(req,res) =>{
-	guestModel.findByIdAndUpdate(req.params._id,req.body).then(function(){
+exports.updateUser=(req,res) =>{
+	userModel.findByIdAndUpdate(req.params._id,req.body).then(function(){
         res.send("updated")
     }).catch(function(e){
         res.send(e)

@@ -5,40 +5,54 @@ const userSchema=new mongoose.Schema({
     name:{
         type:String,
         require:true,
+        trim:true
         
     },
     address:{
-        type:String
+        type:String,
+        require:true,
+        trim:true
+    
     },
     phone_number:{
-        type:Number
+        type:Number,
+        require:true,
+        trim:true
 
     },
     gender:{
-        type:String
+        type:String,
+        require:true,
+        trim:true
+    },
+    dob:{
+        type:Date,
+        require:true,
+        trim:true
+
     },
   
-    password:{
-        type:String
-    },
+
     email:{
-        type:String
-    },
-
-    dob:{
-        type:Date
+        type:String,
+        require:true,
+        trim:true
 
     },
 
-    country:{
-        type:String
+  
+    password:{
+        type:String,
+        require:true,
+        trim:true
+
     },
    
 
   
     image:{
-        type:String
-        
+        type:String,
+        trim:true      
 
     },
     tokens:[{
@@ -52,7 +66,7 @@ const userSchema=new mongoose.Schema({
 
 
 userSchema.statics.checkCrediantialsDb=async(user,pass)=>{
-    const user1=await User.findOne({guest_name:user,password:pass})
+    const user1=await User.findOne({email:user,password:pass})
     return user1;
 }
 
@@ -67,6 +81,6 @@ userSchema.methods.generateAuthToken = async function () {
     return token
    }
    
-const User=mongoose.model('Guest',userSchema)
+const User=mongoose.model('User',userSchema)
 module.exports=User
 

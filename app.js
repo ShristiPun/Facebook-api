@@ -2,14 +2,14 @@ require ('./db/dbsetting')
 const express=require('express');
 const bodyparser=require('body-parser');
 const app=express();
-const favouriteRoute=require('./routers/favouriteRoute')
+const userRoute=require('./router/userRouter')
 app.use(bodyparser.urlencoded({
     extended:true
 }))
 app.use(bodyparser.json());
 app.use(express.json());
 
-app.use(accommodationRoute);
+app.use(userRoute);
 
 
 app.listen(3000);
