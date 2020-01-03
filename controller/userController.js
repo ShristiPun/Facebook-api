@@ -20,7 +20,7 @@ exports.getUser=(req,res)=>{
 
 
 //params is for taking data from url
-exports.deleteUser=(req,res) =>{
+exports.deleteUser=(req,res)    =>{
 	guestModel.findByIdAndDelete(req.params._id).then(function(){
 		res.send("deleted")
 	}).catch(function(){
