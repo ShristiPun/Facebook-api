@@ -10,12 +10,11 @@ const userSchema=new mongoose.Schema({
     },
     address:{
         type:String,
-        require:true,
         trim:true
     
     },
-    phone_number:{
-        type:Number,
+    phone:{
+        type:String,
         require:true,
         trim:true
 
@@ -26,7 +25,7 @@ const userSchema=new mongoose.Schema({
         trim:true
     },
     dob:{
-        type:Date,
+        type:String,
         require:true,
         trim:true
 
@@ -48,13 +47,6 @@ const userSchema=new mongoose.Schema({
 
     },
    
-
-  
-    image:{
-        type:String,
-        trim:true      
-
-    },
     tokens:[{
         tokens:{
         type:String,

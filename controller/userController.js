@@ -2,6 +2,7 @@ var  userModel=require('../model/userModel');
 
 //function for adding user data
 exports.addUser=(req,res)=>{
+    console.log("kushal")
     const user=new userModel(req.body)
     user.save().then(function(){
         res.send("user data has been added")
@@ -11,7 +12,7 @@ exports.addUser=(req,res)=>{
 }
 
 exports.getUser=(req,res)=>{
-    userModel.find().then(function(userdata){
+    userModel.find().then(function(userdaata){
         res.send(userdata)
     }).catch(function(e){
         res.send(e)
